@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>McFadden Lab — Data portal (mockup)</title>
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --panel: #fff;
+      --border: #d0d4dc;
+      --accent: #3b5bdb;
+      --text: #1c1e21;
+      --muted: #5c6370;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .user {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .user button {
+      margin-left: 0.75rem;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      cursor: default;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    @media (max-width: 960px) {
+      main { grid-template-columns: 1fr; }
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      min-height: 220px;
+    }
+    section h2 {
+      margin: 0 0 0.75rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    label { display: block; font-size: 0.85rem; margin-top: 0.5rem; color: var(--muted); }
+    input, select {
+      width: 100%;
+      margin-top: 0.25rem;
+      padding: 0.45rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font: inherit;
+    }
+    .row { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+    .row input { flex: 1; }
+    .actions { margin-top: 0.75rem; }
+    .primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: default;
+    }
+    .preview {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 0.5rem;
+      font-family: ui-monospace, monospace;
+      color: var(--muted);
+    }
+    .chart {
+      height: 180px;
+      border-radius: 8px;
+      background: linear-gradient(160deg, #e8ecff 0%, #f8f9ff 40%, #eef1f8 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      padding: 1rem 0.75rem 0.5rem;
+      gap: 0.35rem;
+    }
+    .bar {
+      flex: 1;
+      background: #7b8cff;
+      border-radius: 4px 4px 0 0;
+      opacity: 0.85;
+    }
+    .bar:nth-child(2) { height: 55%; background: #5c6cfa; }
+    .bar:nth-child(3) { height: 80%; background: #3b5bdb; }
+    .bar:nth-child(4) { height: 45%; background: #7b8cff; }
+    .toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .toolbar select { width: auto; flex: 1; min-width: 120px; }
+    .chat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-height: 280px;
+    }
+    .bubble {
+      background: #f0f2f8;
+      padding: 0.6rem 0.75rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      max-width: 95%;
+    }
+    .bubble.user { align-self: flex-end; background: #dde4ff; }
+    .chat-input {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+    .chat-input input { flex: 1; }
+    .chat-input button {
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: default;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .banner {
+      text-align: center;
+      padding: 0.35rem;
+      background: #fff8e6;
+      border-bottom: 1px solid #f0d78c;
+      font-size: 0.85rem;
+      color: #6b5a1a;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">Static mockup only — not connected to Azure, Databricks, or any API.</div>
+  <header>
+    <h1>McFadden Lab — Research data portal</h1>
+    <div class="user">
+      <span>Signed in: <strong>you@cornell.edu</strong></span>
+      <button type="button" disabled>Sign out</button>
+    </div>
+  </header>
+  <main>
+    <section aria-label="Query panel">
+      <h2>Data query</h2>
+      <label>Dataset</label>
+      <select disabled>
+        <option>Gold — curated studies</option>
+      </select>
+      <label>Study ID</label>
+      <input type="text" placeholder="e.g. DEMO-2026-01" disabled />
+      <div class="row">
+        <div style="flex:1">
+          <label>From</label>
+          <input type="date" disabled />
+        </div>
+        <div style="flex:1">
+          <label>To</label>
+          <input type="date" disabled />
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="primary" disabled>Run query</button>
+      </div>
+      <div class="preview" aria-hidden="true">
+        time_utc | subject_id | variable | value | unit<br />
+        ---------|------------|----------|-------|-----<br />
+        (preview appears here)
+      </div>
+    </section>
+    <section aria-label="Visualization panel">
+      <h2>Visualization</h2>
+      <div class="toolbar">
+        <select disabled><option>Line chart</option><option>Bar chart</option></select>
+        <button type="button" disabled>Add series</button>
+        <button type="button" disabled>Refresh</button>
+      </div>
+      <div class="chart" title="Placeholder chart">
+        <span class="bar" style="height: 70%"></span>
+        <span class="bar" style="height: 55%"></span>
+        <span class="bar" style="height: 80%"></span>
+        <span class="bar" style="height: 45%"></span>
+      </div>
+      <div class="actions">
+        <button type="button" disabled>Export PNG</button>
+        <button type="button" disabled>Export CSV</button>
+      </div>
+    </section>
+    <section aria-label="Assistant panel" class="chat">
+      <h2>Assistant</h2>
+      <div class="bubble user">Summarize average intake by treatment for study DEMO-2026-01.</div>
+      <div class="bubble">
+        Mock response: aggregates would come from the <strong>gold</strong> layer with provenance and QC flags attached. Restricted fields are not exposed to this role.
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Ask about this dataset…" disabled />
+        <button type="button" disabled>Send</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    Data dictionary · API docs (Python/R) · Terms of use — placeholders for future links.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# OS
+Thumbs.db
+Desktop.ini
+
+# Python (if you add scripts later)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+
+# Local Excel backups
+~$*.xlsx
+~$*.xlsm
